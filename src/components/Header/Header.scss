@@ -1,0 +1,139 @@
+.header {
+  width: 100%;
+  padding-top: 30px;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar {
+    &__list {
+      display: flex;
+      gap: 50px;
+    }
+
+    &__link {
+      position: relative;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.7);
+      transition: color .3s ease-in-out;
+
+      &:hover {
+        color: rgba(255, 255, 255, 1);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        bottom: -2px;
+        background-color: #fff;
+        transform: scaleX(0);
+        transition: transform .3s ease-in-out;
+      }
+
+      &:hover::before {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  .menu {
+    display: none;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    margin-right: 20px;
+
+    &__line {
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: #FFF;
+      
+      &:nth-child(1) {
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &:nth-child(3) {
+        bottom: 0;
+      }
+
+      &__active {
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: #FFF;
+        transition: transform .4s ease-in-out, opacity .4s ease-in-out;
+
+        &:nth-child(1) {
+          top: 50%;
+          transform: rotate(45deg);
+          transition: transform .4s ease-in-out;
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+          transition: opacity .4s ease-in-out;
+        }
+
+        &:nth-child(3) {
+          top: 50%;
+          transform: rotate(-45deg);
+          bottom: auto;
+          transition: transform .4s ease-in-out;
+        }
+      }
+    }
+
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    .navbar {
+      display: none;
+    }
+
+    .menu {
+      position: relative;
+      display: block;
+      opacity: 1;
+
+      &__content {
+        position: absolute;
+        top: 40px;
+        right: 30px;
+        width: 150px;
+        height: max-content;
+        padding: 15px;
+        border-radius: 8px;
+        background: linear-gradient(144.39deg,#ffffff -278.56%,#6d6d6d -78.47%,#11101d 91.61%);
+        transition: all .4s ease-in-out;
+
+        .navbar {
+          display: block;
+
+          &__list {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+          }
+
+          &__link {
+            color: #FFF;
+          }
+        }
+      }
+    }
+  }
+}

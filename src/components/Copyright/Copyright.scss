@@ -1,0 +1,37 @@
+.copyright {
+  &__content {
+    border-top: 1px solid #3F3E45;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  &__list {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__link {
+    transform: scale(1);
+    transition: transform .3s ease-in-out;
+    
+    &:hover {
+      transform: scale(1.1);
+      transition: transform .3s ease-in-out;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .copyright__content {
+    align-items: inherit;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
